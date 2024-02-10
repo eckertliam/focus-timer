@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-
+import alarm from './assets/alarm.wav';
 
 interface TimerState {
     time: number;
     isRunning: boolean;
     isWorkTime: boolean;
 }
+
+const audio = new Audio(alarm);
+
+// play alarm for seconds
+function playAlarm(seconds: number) {
+    audio.play();
+    setTimeout(() => audio.pause(), seconds * 1000);
+}
+
+
 
 function secondToTime(seconds: number) {
     const minutes = Math.floor(seconds / 60);
@@ -27,7 +37,11 @@ export default function Timer(worktime: number, breaktime: number) {
             interval = window.setInterval(() => {
                 setState(prevState => {
                     const time = prevState.time - 1;
+                    // set header to current time
+                    document.title = secondToTime(time);
+                    // play alarm for 2.5 seconds when time is up
                     if (time === 0) {
+                        playAlarm(2.5);
                         return {
                             time: prevState.isWorkTime ? breaktime : worktime,
                             isRunning: prevState.isRunning,
