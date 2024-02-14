@@ -1,0 +1,58 @@
+/* the container class is centered in the middle of the screen */
+.container {
+    width: 70vh;
+    height: 70vh;
+    background-color: #fff8f8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: #000000 1px solid;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Hack', monospace;
+}
+
+.container h1 {
+    font-size: 2.5em;
+}
+
+.container h2 {
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.timerBtn {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: #000000 1px solid;
+    width: 15vw;
+    height: 7.5vh;
+}
+
+#lightStart {
+    background-color: #00ff00;
+}
+
+#lightPause {
+    background-color: #ff0000;
+}
+
+#lightReset, #lightSettingsBtn {
+    background-color: #f0fbff;
+}
+
+.numInput {
+    width: 5vw;
+    height: 3vh;
+    font-size: 1.5em;
+    border: #000000 0.4px solid;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+}

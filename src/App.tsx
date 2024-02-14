@@ -1,5 +1,6 @@
 import React from "react";
 import alarm from './assets/alarm.wav';
+import './App.css';
 
 const audio = new Audio(alarm);
 
@@ -62,24 +63,33 @@ export default class App extends React.Component {
     }
 
     render() {
+        document.title = secondsToTime(this.state.time);
+        const themePrefix = this.state.darkMode ? 'dark' : 'light';
         if (this.state.inSettings) {
             return (
-                <div>
+                <div id={themePrefix + 'Settings'} className='container'>
                     <h1>Settings</h1>
-                    <input type="number" value={this.state.worktime / 60} onChange={(e) => this.setState({ worktime: parseInt(e.target.value) * 60 })} />
-                    <input type="number" value={this.state.breaktime / 60} onChange={(e) => this.setState({ breaktime: parseInt(e.target.value) * 60 })} />
-                    <input type="checkbox" checked={this.state.darkMode} onChange={(e) => this.setState({ darkMode: e.target.checked })} />
-                    <button onClick={() => this.setState({ inSettings: false })}>Save</button>
+                    <label htmlFor="workTime">Work time</label>
+                    <input className='numInput' type="number" name="workTime" value={this.state.worktime / 60} onChange={(e) => this.setState({ worktime: parseInt(e.target.value) * 60 })} />
+                    <br />
+                    <label htmlFor="breakTime">Break time</label>
+                    <input className='numInput' type="number" name="breakTime" value={this.state.breaktime / 60} onChange={(e) => this.setState({ breaktime: parseInt(e.target.value) * 60 })} />
+                    <br />
+                    <label htmlFor="darkMode">Dark mode</label>
+                    <input type="checkbox" name="darkMode" checked={this.state.darkMode} onChange={(e) => this.setState({ darkMode: e.target.checked })} />
+                    <br />
+                    <button className={themePrefix + 'SaveBtn'} onClick={() => this.setState({ inSettings: false })}>Save</button>
                 </div>
             )
         } else {
+            const running = this.state.isRunning ? 'Pause' : 'Start';
             return (
-                <div>
+                <div id={themePrefix + 'Timer'} className='container'>
                     <h1>{this.state.isBreak ? 'Break' : 'Work'}</h1>
                     <h2>{secondsToTime(this.state.time)}</h2>
-                    <button onClick={() => this.setState({ inSettings: true })}>Settings</button>
-                    <button onClick={() => this.setState({ isRunning: !this.state.isRunning })}>{this.state.isRunning ? 'Pause' : 'Start'}</button>
-                    <button onClick={() => {
+                    <button className='timerBtn' id={themePrefix + 'SettingsBtn'} onClick={() => this.setState({ inSettings: true })}>Settings</button>
+                    <button className='timerBtn' id={themePrefix + running} onClick={() => this.setState({ isRunning: !this.state.isRunning })}>{running}</button>
+                    <button className='timerBtn' id={themePrefix + 'Reset'} onClick={() => {
                         this.setState({ time: this.state.worktime });
                         this.setState({ isRunning: false });
                         this.setState({ isBreak: false });
