@@ -27,13 +27,16 @@ interface AppState {
     isBreak: boolean;
 }
 
+const defaultWorktime = 25 * 60;
+const defaultBreaktime = 5 * 60;
+
 export default class App extends React.Component {
     state: AppState = ({
         inSettings: false,
-        worktime: 1 * 60,
-        breaktime: 5 * 60,
+        worktime: defaultWorktime,
+        breaktime: defaultBreaktime,
         darkMode: false,
-        time: 1 * 60,
+        time: defaultWorktime,
         isRunning: false,
         isBreak: false,
     } as AppState);
@@ -69,16 +72,16 @@ export default class App extends React.Component {
             return (
                 <div id={themePrefix + 'Settings'} className='container'>
                     <h1>Settings</h1>
-                    <label htmlFor="workTime">Work time</label>
-                    <input className='numInput' type="number" name="workTime" value={this.state.worktime / 60} onChange={(e) => this.setState({ worktime: parseInt(e.target.value) * 60 })} />
+                    <label htmlFor='workTime'>Work time </label>
+                    <input className={themePrefix + 'Input'} id='workTime' type='number' name='workTime' value={this.state.worktime / 60} onChange={(e) => this.setState({ worktime: parseInt(e.target.value) * 60 })} />
                     <br />
-                    <label htmlFor="breakTime">Break time</label>
-                    <input className='numInput' type="number" name="breakTime" value={this.state.breaktime / 60} onChange={(e) => this.setState({ breaktime: parseInt(e.target.value) * 60 })} />
+                    <label htmlFor='breakTime'>Break time </label>
+                    <input className={themePrefix + 'Input'} id='breakTime' type='number' name='breakTime' value={this.state.breaktime / 60} onChange={(e) => this.setState({ breaktime: parseInt(e.target.value) * 60 })} />
                     <br />
-                    <label htmlFor="darkMode">Dark mode</label>
-                    <input type="checkbox" name="darkMode" checked={this.state.darkMode} onChange={(e) => this.setState({ darkMode: e.target.checked })} />
+                    <label htmlFor='darkMode'>Dark mode </label>
+                    <input className={themePrefix + 'ThemeToggle'} id='themeToggle' type='checkbox' name='darkMode' checked={this.state.darkMode} onChange={(e) => this.setState({ darkMode: e.target.checked })} />
                     <br />
-                    <button className={themePrefix + 'SaveBtn'} onClick={() => this.setState({ inSettings: false })}>Save</button>
+                    <button id='saveBtn' className={themePrefix + 'SaveBtn'} onClick={() => this.setState({ inSettings: false })}>Save</button>
                 </div>
             )
         } else {

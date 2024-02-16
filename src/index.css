@@ -1,0 +1,17 @@
+/* select root element for light theme */
+body:has(#lightTimer) {
+    background-color: #e4ebee;
+}
+
+/* select root element for dark theme */
+body:has(#darkTimer) {
+    background-color: #161e26;
+}
+
+body:has(#lightSettings) {
+    background-color: #e4ebee;
+}
+
+body:has(#darkSettings) {
+    background-color: #161e26;
+}

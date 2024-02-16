@@ -2,17 +2,35 @@
 .container {
     width: 70vh;
     height: 70vh;
-    background-color: #fff8f8;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    border: #000000 1px solid;
     padding: 20px;
     text-align: center;
     font-family: 'Hack', monospace;
+}
+
+#lightTimer {
+    background-color: #f0fbff;
+    border: #000000 1px solid;
+    color: #000000;
+}
+
+#lighTimer > * {
+    color: #000000;
+}
+
+#darkTimer {
+    color: #c6dce4;
+    background-color: #2d3742;
+    border: #10151a 1px solid;
+}
+
+#darkTimer > * {
+    color: #c6dce4;
 }
 
 .container h1 {
@@ -29,25 +47,42 @@
     margin: 10px;
     font-size: 1.5em;
     border-radius: 5px;
-    border: #000000 1px solid;
     width: 15vw;
     height: 7.5vh;
 }
 
 #lightStart {
     background-color: #00ff00;
+    border: #000000 1px solid;
+}
+
+#darkStart {
+    background-color: #00b500;
+    border: #10151a 1px solid;
 }
 
 #lightPause {
     background-color: #ff0000;
+    border: #000000 1px solid;
+}
+
+#darkPause {
+    background-color: #b50000;
+    border: #10151a 1px solid;
 }
 
 #lightReset, #lightSettingsBtn {
     background-color: #f0fbff;
+    border: #000000 1px solid;
 }
 
-.numInput {
-    width: 5vw;
+#darkReset, #darkSettingsBtn {
+    background-color: #475b70;
+    border: #10151a 1px solid;
+}
+
+#workTime, #breakTime {
+    width: 8vw;
     height: 3vh;
     font-size: 1.5em;
     border: #000000 0.4px solid;
@@ -55,4 +90,98 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+label {
+    font-size: 1.5em;
+    display: inline-block;
+    width: 15vw;
+    margin-bottom: 5px;
+}
+
+#lightSettings {
+    background-color: #f0fbff;
+    border: #000000 1px solid;
+
+}
+
+#lightSettings > label {
+    color: #000000;
+}
+
+#darkSettings {
+    background-color: #475b70;
+    color: #c6dce4;
+    border: #10151a 1px solid;
+}
+
+#darkSettings > label {
+    color: #c6dce4;
+}
+
+#themeToggle {
+    display: inline-block;
+    width: 5vw;
+    height: 3vh;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid;
+}
+
+.lightInput {
+    background-color: #f0fbff;
+    border: #000000 1px solid;
+}
+
+.darkInput {
+    background-color: #475b70;
+    border: #10151a 1px solid;
+    color: #c6dce4;
+}
+
+.lightThemeToggle {
+    background-color: #f0fbff;
+    border: #000000;
+}
+
+.darkThemeToggle {
+    background-color: #475b70;
+    border: #10151a;
+    color: #c6dce4;
+}
+
+.lightThemeToggle:hover {
+    background-color: #d2e8ff;
+    border: #1e1e1e;
+}
+
+.darkThemeToggle:hover {
+    background-color: #2d3742;
+    border: #1e1e1e;
+    color: #c6dce4;
+}
+
+#saveBtn {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    width: 15vw;
+    height: 7.5vh;
+}
+
+.lightSaveBtn {
+    background-color: #f0fbff;
+    border: #000000 1px solid;
+}
+
+.darkSaveBtn {
+    background-color: #475b70;
+    border: #10151a 1px solid;
+    color: #c6dce4;
 }
