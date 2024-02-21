@@ -185,3 +185,32 @@ label {
     border: #10151a 1px solid;
     color: #c6dce4;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .timerBtn {
+        width: 30vw;
+        height: 7.5vh;
+    }
+
+    #workTime, #breakTime {
+        width: 20vw;
+    }
+
+    label {
+        width: 30vw;
+    }
+
+    #themeToggle {
+        width: 10vw;
+    }
+
+    #saveBtn {
+        width: 30vw;
+        height: 7.5vh;
+    }
+}
